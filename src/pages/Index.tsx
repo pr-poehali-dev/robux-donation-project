@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -9,62 +9,161 @@ const Index = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('servers');
 
-  const servers = [
+  const [servers, setServers] = useState([
     {
       id: 1,
-      name: "Epic Battles Arena",
-      description: "Сражайтесь в эпических битвах с игроками со всего мира",
-      players: 234,
-      maxPlayers: 500,
-      gamemode: "PvP",
+      name: "Adopt Me!",
+      description: "Заботься о питомцах, строй дом и заводи друзей в самой популярной игре Roblox",
+      players: 156420,
+      maxPlayers: 200000,
+      gamemode: "Roleplay",
       status: "online"
     },
     {
       id: 2,
-      name: "Creative Building World",
-      description: "Стройте невероятные миры и делитесь ими с друзьями",
-      players: 156,
-      maxPlayers: 300,
-      gamemode: "Creative",
+      name: "Brookhaven RP",
+      description: "Живи своей мечтой в городе Brookhaven - работай, покупай дома и машины",
+      players: 89234,
+      maxPlayers: 120000,
+      gamemode: "Roleplay",
       status: "online"
     },
     {
       id: 3,
-      name: "Survival Adventure",
-      description: "Выживайте в опасном мире полном приключений",
-      players: 89,
-      maxPlayers: 200,
-      gamemode: "Survival",
+      name: "Blox Fruits",
+      description: "Стань сильнейшим пиратом! Ешь дьявольские фрукты и исследуй моря",
+      players: 234567,
+      maxPlayers: 300000,
+      gamemode: "Action",
+      status: "online"
+    },
+    {
+      id: 4,
+      name: "Murder Mystery 2",
+      description: "Кто убийца? Расследуй преступления или стань самым опасным киллером",
+      players: 45678,
+      maxPlayers: 80000,
+      gamemode: "Mystery",
+      status: "online"
+    },
+    {
+      id: 5,
+      name: "Arsenal",
+      description: "Динамичный FPS шутер с уникальным оружием и картами",
+      players: 67890,
+      maxPlayers: 100000,
+      gamemode: "FPS",
+      status: "online"
+    },
+    {
+      id: 6,
+      name: "Tower of Hell",
+      description: "Поднимайся по бесконечной башне с препятствиями - докажи свое мастерство!",
+      players: 34567,
+      maxPlayers: 60000,
+      gamemode: "Obby",
+      status: "online"
+    },
+    {
+      id: 7,
+      name: "Jailbreak",
+      description: "Сбеги из тюрьмы или поймай преступников - выбери свою сторону",
+      players: 78901,
+      maxPlayers: 110000,
+      gamemode: "Adventure",
+      status: "online"
+    },
+    {
+      id: 8,
+      name: "Piggy",
+      description: "Выживи в мире зараженных свинок и разгадай тайну инфекции",
+      players: 23456,
+      maxPlayers: 50000,
+      gamemode: "Horror",
       status: "online"
     }
-  ];
+  ]);
 
-  const players = [
+  const [players, setPlayers] = useState([
     {
       id: 1,
-      username: "ProGamer2024",
-      level: 85,
-      rating: 2450,
+      username: "xX_DarkLord_Xx",
+      level: 185,
+      rating: 4850,
       status: "online",
-      currentServer: "Epic Battles Arena"
+      currentServer: "Blox Fruits"
     },
     {
       id: 2,
-      username: "BuildMaster",
-      level: 72,
-      rating: 2200,
+      username: "CutePetLover123",
+      level: 142,
+      rating: 3200,
       status: "online",
-      currentServer: "Creative Building World"
+      currentServer: "Adopt Me!"
     },
     {
       id: 3,
-      username: "SurvivalKing",
-      level: 94,
-      rating: 2680,
+      username: "NoobMaster69",
+      level: 234,
+      rating: 5680,
+      status: "online",
+      currentServer: "Arsenal"
+    },
+    {
+      id: 4,
+      username: "BuilderPro2024",
+      level: 167,
+      rating: 3950,
+      status: "offline",
+      currentServer: null
+    },
+    {
+      id: 5,
+      username: "ShadowAssassin",
+      level: 298,
+      rating: 6420,
+      status: "online",
+      currentServer: "Murder Mystery 2"
+    },
+    {
+      id: 6,
+      username: "RainbowUnicorn",
+      level: 89,
+      rating: 2180,
+      status: "online",
+      currentServer: "Brookhaven RP"
+    },
+    {
+      id: 7,
+      username: "SpeedRun_King",
+      level: 201,
+      rating: 4750,
+      status: "online",
+      currentServer: "Tower of Hell"
+    },
+    {
+      id: 8,
+      username: "CriminalMind",
+      level: 156,
+      rating: 3680,
       status: "offline",
       currentServer: null
     }
-  ];
+  ]);
+
+  // Динамическое обновление онлайна каждые 3-5 секунд
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setServers(prevServers => 
+        prevServers.map(server => ({
+          ...server,
+          players: Math.max(1000, Math.floor(server.players + Math.random() * 2000 - 1000))
+        }))
+      );
+    }, Math.random() * 2000 + 3000); // 3-5 секунд
+
+    return () => clearInterval(interval);
+  }, []);
 
   const filteredServers = servers.filter(server =>
     server.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
