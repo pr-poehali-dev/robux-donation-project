@@ -66,7 +66,7 @@ const Index = () => {
       description: "Поднимайся по бесконечной башне с препятствиями - докажи свое мастерство!",
       players: 34567,
       maxPlayers: 60000,
-      gamemode: "Obby",
+      gamemode: "Platformer",
       developer: "YXCeptional Studios",
       status: "online"
     },
@@ -76,7 +76,7 @@ const Index = () => {
       description: "Сбеги из тюрьмы или поймай преступников - выбери свою сторону",
       players: 78901,
       maxPlayers: 110000,
-      gamemode: "Adventure",
+      gamemode: "Crime",
       developer: "Badimo",
       status: "online"
     },
@@ -88,6 +88,66 @@ const Index = () => {
       maxPlayers: 50000,
       gamemode: "Horror",
       developer: "MiniToon",
+      status: "online"
+    },
+    {
+      id: 9,
+      name: "Pet Simulator X",
+      description: "Собирай редких питомцев, открывай яйца и торгуй с друзьями",
+      players: 45230,
+      maxPlayers: 70000,
+      gamemode: "Simulator",
+      developer: "BIG Games",
+      status: "online"
+    },
+    {
+      id: 10,
+      name: "Phantom Forces",
+      description: "Реалистичный тактический шутер с большим арсеналом оружия",
+      players: 12890,
+      maxPlayers: 40000,
+      gamemode: "Tactical FPS",
+      developer: "StyLiS Studios",
+      status: "online"
+    },
+    {
+      id: 11,
+      name: "Natural Disaster Survival",
+      description: "Выживай в природных катастрофах - торнадо, цунами и землетрясения!",
+      players: 8765,
+      maxPlayers: 25000,
+      gamemode: "Survival",
+      developer: "Stickmasterluke",
+      status: "online"
+    },
+    {
+      id: 12,
+      name: "Bee Swarm Simulator",
+      description: "Разводи пчел, собирай мед и стань самым богатым пчеловодом",
+      players: 34521,
+      maxPlayers: 55000,
+      gamemode: "Simulator",
+      developer: "Onett",
+      status: "online"
+    },
+    {
+      id: 13,
+      name: "Work at a Pizza Place",
+      description: "Работай в пиццерии, готовь заказы и зарабатывай деньги",
+      players: 19876,
+      maxPlayers: 35000,
+      gamemode: "Job Simulator",
+      developer: "Dued1",
+      status: "online"
+    },
+    {
+      id: 14,
+      name: "Da Hood",
+      description: "Уличная жизнь в городе - сражайся, торгуй и выживай в жестоком мире",
+      players: 67432,
+      maxPlayers: 90000,
+      gamemode: "Hood Life",
+      developer: "Da Hood Entertainment",
       status: "online"
     }
   ]);
