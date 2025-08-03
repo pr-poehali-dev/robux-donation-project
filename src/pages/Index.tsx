@@ -149,6 +149,16 @@ const Index = () => {
       gamemode: "Hood Life",
       developer: "Da Hood Entertainment",
       status: "online"
+    },
+    {
+      id: 15,
+      name: "Grow a Garden",
+      description: "Выращивай растения, ухаживай за садом и создавай ботанический рай",
+      players: 15432,
+      maxPlayers: 30000,
+      gamemode: "Farming",
+      developer: "Garden Studios",
+      status: "online"
     }
   ]);
 
