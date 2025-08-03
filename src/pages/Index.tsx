@@ -17,6 +17,7 @@ const Index = () => {
       players: 156420,
       maxPlayers: 200000,
       gamemode: "Roleplay",
+      developer: "DreamCraft",
       status: "online"
     },
     {
@@ -26,6 +27,7 @@ const Index = () => {
       players: 89234,
       maxPlayers: 120000,
       gamemode: "Roleplay",
+      developer: "Wolfpaq",
       status: "online"
     },
     {
@@ -35,6 +37,7 @@ const Index = () => {
       players: 234567,
       maxPlayers: 300000,
       gamemode: "Action",
+      developer: "Gamer Robot Inc",
       status: "online"
     },
     {
@@ -44,6 +47,7 @@ const Index = () => {
       players: 45678,
       maxPlayers: 80000,
       gamemode: "Mystery",
+      developer: "Nikilis",
       status: "online"
     },
     {
@@ -53,6 +57,7 @@ const Index = () => {
       players: 67890,
       maxPlayers: 100000,
       gamemode: "FPS",
+      developer: "ROLVe Community",
       status: "online"
     },
     {
@@ -62,6 +67,7 @@ const Index = () => {
       players: 34567,
       maxPlayers: 60000,
       gamemode: "Obby",
+      developer: "YXCeptional Studios",
       status: "online"
     },
     {
@@ -71,6 +77,7 @@ const Index = () => {
       players: 78901,
       maxPlayers: 110000,
       gamemode: "Adventure",
+      developer: "Badimo",
       status: "online"
     },
     {
@@ -80,6 +87,7 @@ const Index = () => {
       players: 23456,
       maxPlayers: 50000,
       gamemode: "Horror",
+      developer: "MiniToon",
       status: "online"
     }
   ]);
@@ -252,16 +260,25 @@ const Index = () => {
                   <CardContent className="space-y-4">
                     <p className="text-gray-300 text-sm">{server.description}</p>
                     
-                    <div className="flex items-center justify-between">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Icon name="Users" size={16} className="text-blue-400" />
+                          <span className="text-white font-semibold">
+                            {server.players}/{server.maxPlayers}
+                          </span>
+                        </div>
+                        <Badge variant="outline" className="border-purple-500 text-purple-300">
+                          {server.gamemode}
+                        </Badge>
+                      </div>
+                      
                       <div className="flex items-center gap-2">
-                        <Icon name="Users" size={16} className="text-blue-400" />
-                        <span className="text-white font-semibold">
-                          {server.players}/{server.maxPlayers}
+                        <Icon name="Code" size={16} className="text-yellow-400" />
+                        <span className="text-gray-300 text-sm">
+                          by {server.developer}
                         </span>
                       </div>
-                      <Badge variant="outline" className="border-purple-500 text-purple-300">
-                        {server.gamemode}
-                      </Badge>
                     </div>
 
                     <div className="w-full bg-slate-700 rounded-full h-2">
