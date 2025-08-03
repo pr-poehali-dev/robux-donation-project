@@ -4,12 +4,29 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+import { useRobloxData } from '@/hooks/useRobloxData';
+import ApiStatus from '@/components/ApiStatus';
+import LoadingSpinner from '@/components/ui/loading-spinner';
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('servers');
+  
+  // Используем новый хук для управления данными
+  const {
+    servers,
+    players,
+    isLoading,
+    error,
+    lastUpdated,
+    refreshData,
+    searchGames,
+    toggleApiMode,
+    clearError
+  } = useRobloxData();
 
-  const [servers, setServers] = useState([
+  // Удаляем старое локальное состояние, теперь используем хук
+  const oldServers = [
     {
       id: 1,
       name: "Adopt Me!",
@@ -160,9 +177,9 @@ const Index = () => {
       developer: "Garden Studios",
       status: "online"
     }
-  ]);
+  ]; // Удалили useState, теперь используем данные из хука
 
-  const [players, setPlayers] = useState([
+  const oldPlayers = [
     {
       id: 1,
       username: "xX_DarkLord_Xx",
@@ -227,21 +244,9 @@ const Index = () => {
       status: "offline",
       currentServer: null
     }
-  ]);
+  ]; // Удалили useState, теперь используем данные из хука
 
-  // Динамическое обновление онлайна каждые 3-5 секунд
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setServers(prevServers => 
-        prevServers.map(server => ({
-          ...server,
-          players: Math.max(1000, Math.floor(server.players + Math.random() * 2000 - 1000))
-        }))
-      );
-    }, Math.random() * 2000 + 3000); // 3-5 секунд
-
-    return () => clearInterval(interval);
-  }, []);
+  // Динамическое обновление перенесено в useRobloxData хук
 
   const filteredServers = servers.filter(server =>
     server.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -256,6 +261,17 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header */}
       <div className="container mx-auto px-4 py-8">
+        
+        {/* API Status Component */}
+        <ApiStatus
+          isConnected={!error}
+          isMockMode={true} // Сейчас всегда в mock режиме
+          lastUpdated={lastUpdated}
+          onToggleMode={toggleApiMode}
+          onRefresh={refreshData}
+          isLoading={isLoading}
+          error={error}
+        />
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
@@ -315,8 +331,14 @@ const Index = () => {
               </Badge>
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredServers.map((server) => (
+            {isLoading ? (
+              <div className="flex justify-center items-center py-12">
+                <LoadingSpinner size="lg" />
+                <span className="ml-3 text-white">Загрузка серверов...</span>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredServers.map((server) => (
                 <Card key={server.id} className="bg-slate-800/70 border-slate-700 hover:bg-slate-800/90 transition-all duration-300 hover:scale-105">
                   <CardHeader className="pb-3">
                     <div className="flex items-start justify-between">
@@ -364,8 +386,9 @@ const Index = () => {
                     </Button>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         ) : (
           <div className="space-y-6">
@@ -377,8 +400,14 @@ const Index = () => {
               </Badge>
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPlayers.map((player, index) => (
+            {isLoading ? (
+              <div className="flex justify-center items-center py-12">
+                <LoadingSpinner size="lg" />
+                <span className="ml-3 text-white">Загрузка игроков...</span>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredPlayers.map((player, index) => (
                 <Card key={player.id} className="bg-slate-800/70 border-slate-700 hover:bg-slate-800/90 transition-all duration-300 hover:scale-105">
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
@@ -428,8 +457,9 @@ const Index = () => {
                     </div>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
