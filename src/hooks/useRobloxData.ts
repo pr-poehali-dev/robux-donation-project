@@ -165,6 +165,150 @@ export function useRobloxData(): UseRobloxDataState & UseRobloxDataActions {
         rating: 6400,
         status: "online",
         currentServer: "Squad Сервер"
+      },
+      {
+        id: 13,
+        username: "PrestonPlayz",
+        level: 88,
+        rating: 8100,
+        status: "online",
+        currentServer: "Preston's World"
+      },
+      {
+        id: 14,
+        username: "Thinknoodles",
+        level: 85,
+        rating: 7700,
+        status: "online",
+        currentServer: "Think Tank"
+      },
+      {
+        id: 15,
+        username: "CoryxKenshin",
+        level: 91,
+        rating: 8600,
+        status: "online",
+        currentServer: "Samurai Dojo"
+      },
+      {
+        id: 16,
+        username: "LaurenzSide",
+        level: 80,
+        rating: 6900,
+        status: "online",
+        currentServer: "Lauren's Lab"
+      },
+      {
+        id: 17,
+        username: "Leah_Ashe",
+        level: 78,
+        rating: 6500,
+        status: "online",
+        currentServer: "Royale High VIP"
+      },
+      {
+        id: 18,
+        username: "GamingWithJen",
+        level: 77,
+        rating: 6300,
+        status: "online",
+        currentServer: "Jen's Playground"
+      },
+      {
+        id: 19,
+        username: "RobotMega",
+        level: 92,
+        rating: 8700,
+        status: "online",
+        currentServer: "Mega Arena"
+      },
+      {
+        id: 20,
+        username: "Hyper",
+        level: 93,
+        rating: 8800,
+        status: "online",
+        currentServer: "Hyper Zone"
+      },
+      {
+        id: 21,
+        username: "AlbertsStuff",
+        level: 88,
+        rating: 8000,
+        status: "online",
+        currentServer: "Albert's Chaos"
+      },
+      {
+        id: 22,
+        username: "JeromeASF",
+        level: 85,
+        rating: 7500,
+        status: "online",
+        currentServer: "Jerome's Arena"
+      },
+      {
+        id: 23,
+        username: "KonekoKitten",
+        level: 89,
+        rating: 8300,
+        status: "online",
+        currentServer: "Koneko's Realm"
+      },
+      {
+        id: 24,
+        username: "Piggy",
+        level: 94,
+        rating: 9000,
+        status: "online",
+        currentServer: "Piggy House"
+      },
+      {
+        id: 25,
+        username: "RB_Battles",
+        level: 96,
+        rating: 9200,
+        status: "online",
+        currentServer: "RB Battles Hub"
+      },
+      {
+        id: 26,
+        username: "StealthAgent",
+        level: 87,
+        rating: 7900,
+        status: "online",
+        currentServer: "Stealth HQ"
+      },
+      {
+        id: 27,
+        username: "GoldenGlare",
+        level: 84,
+        rating: 7300,
+        status: "online",
+        currentServer: "Golden Castle"
+      },
+      {
+        id: 28,
+        username: "Remainings",
+        level: 91,
+        rating: 8500,
+        status: "online",
+        currentServer: "Remain's Realm"
+      },
+      {
+        id: 29,
+        username: "KEEMSTAR",
+        level: 76,
+        rating: 6200,
+        status: "offline",
+        currentServer: null
+      },
+      {
+        id: 30,
+        username: "SSSniperWolf_YT",
+        level: 83,
+        rating: 7100,
+        status: "online",
+        currentServer: "Sniper's Den"
       }
     ];
 

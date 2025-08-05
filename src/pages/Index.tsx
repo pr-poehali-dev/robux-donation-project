@@ -7,10 +7,14 @@ import Icon from '@/components/ui/icon';
 import { useRobloxData } from '@/hooks/useRobloxData';
 import ApiStatus from '@/components/ApiStatus';
 import LoadingSpinner from '@/components/ui/loading-spinner';
+import JoinServerModal from '@/components/JoinServerModal';
+import { RobloxPlayer } from '@/types/roblox';
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('servers');
+  const [selectedPlayer, setSelectedPlayer] = useState<RobloxPlayer | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Используем новый хук для управления данными
   const {
@@ -449,7 +453,13 @@ const Index = () => {
                         Добавить
                       </Button>
                       {player.currentServer && (
-                        <Button className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white">
+                        <Button 
+                          onClick={() => {
+                            setSelectedPlayer(player);
+                            setIsModalOpen(true);
+                          }}
+                          className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white"
+                        >
                           <Icon name="Users" size={16} className="mr-2" />
                           Присоединиться
                         </Button>
@@ -463,6 +473,16 @@ const Index = () => {
           </div>
         )}
       </div>
+
+      {/* Модальное окно присоединения к серверу */}
+      <JoinServerModal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedPlayer(null);
+        }}
+        player={selectedPlayer}
+      />
     </div>
   );
 };
