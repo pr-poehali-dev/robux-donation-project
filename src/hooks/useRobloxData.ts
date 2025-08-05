@@ -72,21 +72,100 @@ export function useRobloxData(): UseRobloxDataState & UseRobloxDataActions {
     const mockPlayers: RobloxPlayer[] = [
       {
         id: 1,
-        username: "xX_DarkLord_Xx",
-        level: 185,
-        rating: 4850,
+        username: "Builderman",
+        level: 100,
+        rating: 9999,
         status: "online",
-        currentServer: "Blox Fruits"
+        currentServer: "VIP Сервер"
       },
       {
         id: 2,
-        username: "CutePetLover123",
-        level: 142,
-        rating: 3200,
+        username: "Telamon",
+        level: 98,
+        rating: 9500,
         status: "online",
-        currentServer: "Adopt Me!"
+        currentServer: "Admin Сервер"
       },
-      // Добавляем больше mock данных...
+      {
+        id: 3,
+        username: "KreekCraft",
+        level: 95,
+        rating: 8900,
+        status: "online",
+        currentServer: "Kreek Island"
+      },
+      {
+        id: 4,
+        username: "Flamingo",
+        level: 89,
+        rating: 8200,
+        status: "online",
+        currentServer: "Flamingo Fun"
+      },
+      {
+        id: 5,
+        username: "DenisDaily",
+        level: 87,
+        rating: 7800,
+        status: "online",
+        currentServer: "Denis World"
+      },
+      {
+        id: 6,
+        username: "ItsFunneh",
+        level: 84,
+        rating: 7400,
+        status: "online",
+        currentServer: "Krew Сервер"
+      },
+      {
+        id: 7,
+        username: "Poke",
+        level: 82,
+        rating: 7000,
+        status: "online",
+        currentServer: "Poke Plaza"
+      },
+      {
+        id: 8,
+        username: "TanqR",
+        level: 90,
+        rating: 8500,
+        status: "online",
+        currentServer: "BedWars Pro"
+      },
+      {
+        id: 9,
+        username: "PinkLeaf",
+        level: 86,
+        rating: 7600,
+        status: "online",
+        currentServer: "Pink Paradise"
+      },
+      {
+        id: 10,
+        username: "Sketch",
+        level: 83,
+        rating: 7200,
+        status: "online",
+        currentServer: "Sketch Studios"
+      },
+      {
+        id: 11,
+        username: "RussoPlays",
+        level: 81,
+        rating: 6800,
+        status: "offline",
+        currentServer: null
+      },
+      {
+        id: 12,
+        username: "InquisitorMaster",
+        level: 79,
+        rating: 6400,
+        status: "online",
+        currentServer: "Squad Сервер"
+      }
     ];
 
     updateState({
